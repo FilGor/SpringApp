@@ -1,5 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
 
+<body>
 <h1>Add your Note:</h1>
+
 <form action="#" th:action="@{/list}" th:object="${notes}" method="post">
     <p>Your Note: <input type="text" th:field="*{text}" /></p>
     <select name="importance">
@@ -9,15 +16,27 @@
     <p><input type="submit" value="Add" />
 </form>
 
-    <h1>YOUR NOTES:</h1>
-<tr th:each="note : ${listofnotes}">
-    <p>ID - Importance - Text</p>
-<td th:utext="${note.id}"></td>
+<h1>YOUR NOTES:</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Importance</th>
+        <th>Text</th>
+        <th>Timestamp</th>
+    </tr>
+    <tr  th:each="note : ${listofnotes}">
 
-<td th:utext="${note.importance}"></td>
+        <th th:utext="${note.id}"></th>
 
-<td th:utext="${note.text}"></td>
+        <th th:utext="${note.importance}"></th>
 
-<td th:utext="${note.timestamp}"></td>
+        <th th:utext="${note.text}"></th>
 
-</tr>
+        <th th:utext="${note.timestamp}"></th>
+
+    </tr>
+</table>
+
+</body>
+
+</html>
