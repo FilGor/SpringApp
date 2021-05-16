@@ -1,1 +1,23 @@
-test
+
+<h1>Add your Note:</h1>
+<form action="#" th:action="@{/list}" th:object="${notes}" method="post">
+    <p>Your Note: <input type="text" th:field="*{text}" /></p>
+    <select name="importance">
+        <option th:each="impOpt : ${T(com.example.demo.domain.ImportanceEnum).values()}"
+                th:value="${impOpt}" th:text="${impOpt}"></option>
+    </select>
+    <p><input type="submit" value="Add" />
+</form>
+
+    <h1>YOUR NOTES:</h1>
+<tr th:each="note : ${listofnotes}">
+    <p>ID - Importance - Text</p>
+<td th:utext="${note.id}"></td>
+
+<td th:utext="${note.importance}"></td>
+
+<td th:utext="${note.text}"></td>
+
+<td th:utext="${note.timestamp}"></td>
+
+</tr>

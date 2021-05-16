@@ -17,6 +17,9 @@ public class Note {
     private String text;
     private Timestamp timestamp;
 
+    public Note() {
+    }
+
     public Long getId() {
         return id;
     }
